@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Logs
+logs/
+
+# Datasets and generated files (keep cardekho_dataset.csv as source of truth)
+*.csv
+!cardekho_dataset.csv
+*.pkl
+*.joblib
+artifacts/
+
+# Scraping scrap/temp files
+web-scraping/*.html
+web-scraping/*_files/
+web-scraping/parsed_cardekho_data.csv
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
