@@ -1,0 +1,24 @@
+{
+  "target_column": "selling_price",
+  "columns_to_drop": [
+    "Unnamed: 0",
+    "car_name"
+  ],
+  "numerical_features": [
+    "vehicle_age",
+    "km_driven",
+    "mileage",
+    "engine",
+    "max_power",
+    "seats"
+  ],
+  "categorical_features": [
+    "brand",
+    "model",
+    "seller_type",
+    "fuel_type",
+    "transmission_type"
+  ],
+  "seats_anomaly_threshold": 0,
+  "seats_fallback_value": 5
+}

@@ -12,8 +12,10 @@ env/
 venv/
 ENV/
 
-# Logs
+# Logs & Large Data
 logs/
+data/
+download_craigslist.py
 
 # Datasets and generated files (keep cardekho_dataset.csv as source of truth)
 *.csv
