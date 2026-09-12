@@ -1,0 +1,215 @@
+{
+  "total_raw_listings": 426880,
+  "clean_listings": 358226,
+  "model_sample_size": 25000,
+  "audit_summary": [
+    {
+      "column": "price",
+      "missing_pct": 0.0,
+      "unique_cnt": 15655
+    },
+    {
+      "column": "year",
+      "missing_pct": 0.28,
+      "unique_cnt": 114
+    },
+    {
+      "column": "odometer",
+      "missing_pct": 1.03,
+      "unique_cnt": 104870
+    },
+    {
+      "column": "manufacturer",
+      "missing_pct": 4.13,
+      "unique_cnt": 42
+    },
+    {
+      "column": "condition",
+      "missing_pct": 40.79,
+      "unique_cnt": 6
+    },
+    {
+      "column": "cylinders",
+      "missing_pct": 41.62,
+      "unique_cnt": 8
+    },
+    {
+      "column": "fuel",
+      "missing_pct": 0.71,
+      "unique_cnt": 5
+    },
+    {
+      "column": "title_status",
+      "missing_pct": 1.93,
+      "unique_cnt": 6
+    },
+    {
+      "column": "transmission",
+      "missing_pct": 0.6,
+      "unique_cnt": 3
+    },
+    {
+      "column": "drive",
+      "missing_pct": 30.59,
+      "unique_cnt": 3
+    },
+    {
+      "column": "size",
+      "missing_pct": 71.77,
+      "unique_cnt": 4
+    },
+    {
+      "column": "type",
+      "missing_pct": 21.75,
+      "unique_cnt": 13
+    },
+    {
+      "column": "paint_color",
+      "missing_pct": 30.5,
+      "unique_cnt": 12
+    },
+    {
+      "column": "state",
+      "missing_pct": 0.0,
+      "unique_cnt": 51
+    }
+  ],
+  "cramers_v": {
+    "manufacturer": {
+      "manufacturer": 1.0,
+      "condition": 0.1,
+      "fuel": 0.35,
+      "title_status": 0.03,
+      "transmission": 0.16,
+      "drive": 0.32,
+      "type": 0.23
+    },
+    "condition": {
+      "manufacturer": 0.1,
+      "condition": 1.0,
+      "fuel": 0.14,
+      "title_status": 0.13,
+      "transmission": 0.35,
+      "drive": 0.14,
+      "type": 0.16
+    },
+    "fuel": {
+      "manufacturer": 0.35,
+      "condition": 0.14,
+      "fuel": 1.0,
+      "title_status": 0.08,
+      "transmission": 0.22,
+      "drive": 0.13,
+      "type": 0.2
+    },
+    "title_status": {
+      "manufacturer": 0.03,
+      "condition": 0.13,
+      "fuel": 0.08,
+      "title_status": 1.0,
+      "transmission": 0.05,
+      "drive": 0.05,
+      "type": 0.05
+    },
+    "transmission": {
+      "manufacturer": 0.16,
+      "condition": 0.35,
+      "fuel": 0.22,
+      "title_status": 0.05,
+      "transmission": 1.0,
+      "drive": 0.1,
+      "type": 0.26
+    },
+    "drive": {
+      "manufacturer": 0.32,
+      "condition": 0.14,
+      "fuel": 0.13,
+      "title_status": 0.05,
+      "transmission": 0.1,
+      "drive": 1.0,
+      "type": 0.45
+    },
+    "type": {
+      "manufacturer": 0.23,
+      "condition": 0.16,
+      "fuel": 0.2,
+      "title_status": 0.05,
+      "transmission": 0.26,
+      "drive": 0.45,
+      "type": 1.0
+    }
+  },
+  "personas": [
+    {
+      "cluster_id": 0,
+      "name": "High-Value Executive Fleet",
+      "count": 5831,
+      "share_pct": 23.32,
+      "median_price": 8900,
+      "median_year": 2011,
+      "median_odometer": 119690,
+      "top_manufacturer": "chevrolet",
+      "top_type": "sedan",
+      "top_drive": "fwd",
+      "top_condition": "excellent",
+      "top_title": "clean"
+    },
+    {
+      "cluster_id": 1,
+      "name": "Heavy-Duty Utility Workhorses",
+      "count": 2710,
+      "share_pct": 10.84,
+      "median_price": 43900,
+      "median_year": 2017,
+      "median_odometer": 40848,
+      "top_manufacturer": "ford",
+      "top_type": "truck",
+      "top_drive": "4wd",
+      "top_condition": "NP",
+      "top_title": "clean"
+    },
+    {
+      "cluster_id": 2,
+      "name": "Economy Daily Commuters",
+      "count": 4742,
+      "share_pct": 18.97,
+      "median_price": 5500,
+      "median_year": 2005,
+      "median_odometer": 174977,
+      "top_manufacturer": "ford",
+      "top_type": "NP",
+      "top_drive": "NP",
+      "top_condition": "NP",
+      "top_title": "clean"
+    },
+    {
+      "cluster_id": 3,
+      "name": "Under-Profiled Bargain Specs",
+      "count": 6543,
+      "share_pct": 26.17,
+      "median_price": 17500,
+      "median_year": 2015,
+      "median_odometer": 80500,
+      "top_manufacturer": "ford",
+      "top_type": "NP",
+      "top_drive": "NP",
+      "top_condition": "NP",
+      "top_title": "clean"
+    },
+    {
+      "cluster_id": 4,
+      "name": "Rebuilt & Value Inventory",
+      "count": 5174,
+      "share_pct": 20.7,
+      "median_price": 28590,
+      "median_year": 2018,
+      "median_odometer": 24828,
+      "top_manufacturer": "ford",
+      "top_type": "sedan",
+      "top_drive": "NP",
+      "top_condition": "good",
+      "top_title": "clean"
+    }
+  ],
+  "mean_ari_stability": 0.4831
+}
