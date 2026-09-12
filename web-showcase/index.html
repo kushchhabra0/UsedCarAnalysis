@@ -3,130 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Used Car Market Analytics & Persona Dashboard</title>
-    <meta name="description" content="Executive ML Analytics Dashboard showcasing K-Prototypes Market Segmentation on 426,880 Used Car Listings.">
+    <title>Used Car Market Analytics | Data Intelligence Platform</title>
+    <meta name="description" content="Enterprise ML analytics platform showcasing K-Prototypes market segmentation on 426,880 Craigslist listings.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="blob-bg"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <span class="logo-icon">📊</span> AutoAnalytics <span class="badge-mini">PRO</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#kpi-summary">Overview</a></li>
-            <li><a href="#charts">Market Charts</a></li>
-            <li><a href="#personas">Personas</a></li>
-            <li><a href="#data-hygiene">Data Hygiene</a></li>
-            <li><a href="#business-insights">Business Impact</a></li>
-            <li><a href="https://github.com/kushchhabra0/UsedCarAnalysis" target="_blank" class="btn-outline">GitHub Repo</a></li>
-        </ul>
-    </nav>
-
-    <!-- Header Hero -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="badge">Market Segmentation & Persona Analytics</div>
-            <h1>Used Car Market <br><span class="gradient-text">Executive Dashboard</span></h1>
-            <p>Empirical findings from K-Prototypes clustering ($K=5$) on <strong>426,880 listings</strong>. Transforming raw marketplace records into strategic buyer personas and actionable pricing insights.</p>
-            <div class="hero-buttons">
-                <a href="#charts" class="btn-primary">View Charts & Analytics</a>
-                <a href="#business-insights" class="btn-secondary">Strategic Insights</a>
+    <!-- Header Navigation -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-logo">■</span>
+                <span class="brand-name">AutoAnalytics</span>
+                <span class="brand-tag">ENTERPRISE ML</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#findings" class="nav-item">Findings</a>
+                <a href="#charts" class="nav-item">Visualizations</a>
+                <a href="#personas" class="nav-item">Playbooks</a>
+                <a href="#audit" class="nav-item">Audit & Hygiene</a>
+                <a href="#strategy" class="nav-item">Strategy</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://github.com/kushchhabra0/UsedCarAnalysis" target="_blank" class="btn-github">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub Repository
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- KPI Metric Cards -->
-    <section id="kpi-summary" class="kpi-section">
-        <div class="container">
-            <div class="kpi-grid">
-                <div class="kpi-card glass-card">
-                    <div class="kpi-icon">🚗</div>
-                    <div class="kpi-value" id="kpi-raw">426,880</div>
-                    <div class="kpi-label">Raw Listings Audited</div>
-                    <div class="kpi-sub">Craigslist Dataset</div>
+    <!-- Main Content Container -->
+    <main class="main-layout" id="overview">
+        
+        <!-- Page Title & Meta Toolbar -->
+        <div class="page-header">
+            <div class="page-title-area">
+                <div class="kicker">DATA SCIENCE & MARKET INTELLIGENCE REPORT</div>
+                <h1>Used Car Market Persona Segmentation</h1>
+                <p class="page-subtitle">Empirical market intelligence & behavioral persona discovery across 426,880 listings using K-Prototypes clustering ($K=5$) and density-based centroid seeding.</p>
+            </div>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-label">DATASET</span>
+                    <span class="meta-val">Craigslist (426.8k)</span>
                 </div>
-                <div class="kpi-card glass-card">
-                    <div class="kpi-icon">🧹</div>
-                    <div class="kpi-value" id="kpi-clean">348,720</div>
-                    <div class="kpi-label">Clean Model Records</div>
-                    <div class="kpi-sub">Outliers & Invalid Filtered</div>
+                <div class="meta-item">
+                    <span class="meta-label">MODEL</span>
+                    <span class="meta-val">K-Prototypes (K=5)</span>
                 </div>
-                <div class="kpi-card glass-card">
-                    <div class="kpi-icon">🎯</div>
-                    <div class="kpi-value">5 Personas</div>
-                    <div class="kpi-label">Market Segments</div>
-                    <div class="kpi-sub">K-Prototypes ($K=5$)</div>
-                </div>
-                <div class="kpi-card glass-card">
-                    <div class="kpi-icon">🛡️</div>
-                    <div class="kpi-value">0.9997 ARI</div>
-                    <div class="kpi-label">Cao Seed Stability</div>
-                    <div class="kpi-sub">Target &gt; 0.85 (36/36 Checks)</div>
+                <div class="meta-item">
+                    <span class="meta-label">STABILITY</span>
+                    <span class="meta-val text-success">0.9997 ARI</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Analytical Charts Section -->
-    <section id="charts" class="charts-section">
-        <div class="container">
-            <h2 class="section-title">Empirical Market Distribution & Pricing Charts</h2>
+        <!-- Key Metrics Strip (Analytical KPI Block) -->
+        <section class="kpi-strip">
+            <div class="kpi-block">
+                <span class="kpi-title">RAW LISTINGS AUDITED</span>
+                <div class="kpi-num">426,880</div>
+                <span class="kpi-meta">Full marketplace scope</span>
+            </div>
+            <div class="kpi-block">
+                <span class="kpi-title">CLEAN MODEL RECORDS</span>
+                <div class="kpi-num">348,720</div>
+                <span class="kpi-meta">Outliers & invalid scrubbed</span>
+            </div>
+            <div class="kpi-block">
+                <span class="kpi-title">DISCOVERED PERSONAS</span>
+                <div class="kpi-num">5 Segments</div>
+                <span class="kpi-meta">Mixed numeric & categorical</span>
+            </div>
+            <div class="kpi-block">
+                <span class="kpi-title">SEED STABILITY (ARI)</span>
+                <div class="kpi-num text-success">0.9997</div>
+                <span class="kpi-meta">Cao density seeding verified</span>
+            </div>
+        </section>
 
-            <div class="charts-grid">
-                <!-- Chart 1: Market Share & Price Comparison -->
-                <div class="chart-card glass-card">
-                    <h3>Market Share & Median Price by Persona</h3>
-                    <p class="chart-sub">Comparing pricing tiers against segment volume share</p>
-                    <div class="chart-wrapper">
+        <!-- Executive Narrative & Findings Section -->
+        <section class="section-block" id="findings">
+            <div class="section-header">
+                <h2>Analytical Methodology & Discovery Narrative</h2>
+                <span class="section-sub">Rigorous ML pipeline transferring account segmentation methodology to automotive marketplace data.</span>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Finding 01 -->
+                <article class="editorial-card">
+                    <div class="card-num">01</div>
+                    <div class="card-body">
+                        <span class="tag-label">DATA HYGIENE</span>
+                        <h3>Informative Missingness (MNAR Prospect Structure)</h3>
+                        <p>Rather than discarding listings missing specs (e.g. 71.7% missing vehicle size, 41.6% cylinders), missing values were explicitly tagged with structural <code>'NP'</code> (Not Provided) tokens. This preserves non-profiling behavior as a predictive market signal rather than corrupting distributions.</p>
+                        <div class="stat-callout">
+                            <span class="stat-highlight">26.17%</span> of listings fall into the Under-Profiled Bargain segment due to missing specification details.
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Finding 02 -->
+                <article class="editorial-card">
+                    <div class="card-num">02</div>
+                    <div class="card-body">
+                        <span class="tag-label">MODEL STABILITY</span>
+                        <h3>Density Seeding Fix (Cao vs. Huang)</h3>
+                        <p>Standard <code>init='Huang'</code> uses stochastic mode sampling, yielding low seed stability (ARI ~ 0.38) on high-cardinality nominal data. Switching to deterministic <strong>Cao density-based centroid seeding</strong> stabilized cluster bounds, raising seed ARI to <strong>0.9997</strong>.</p>
+                        <div class="stat-callout">
+                            <span class="stat-highlight">0.9997 ARI</span> achieved across 5 random initialization seeds (&gt; 0.85 benchmark threshold).
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Finding 03 -->
+                <article class="editorial-card">
+                    <div class="card-num">03</div>
+                    <div class="card-body">
+                        <span class="tag-label">FEATURE SELECTION</span>
+                        <h3>Cramér's V Association Screening</h3>
+                        <p>Screened nominal categorical pairs to eliminate collinearity distortion. Discovered moderate redundant alignment between vehicle <code>type</code> and <code>drive</code> ($V=0.48$) and <code>manufacturer</code> vs <code>type</code> ($V=0.38$).</p>
+                        <div class="stat-callout">
+                            <span class="stat-highlight">V = 0.48</span> association detected between drive type and vehicle category.
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Visualizations Section -->
+        <section class="section-block" id="charts">
+            <div class="section-header">
+                <h2>Empirical Visual Analytics</h2>
+                <span class="section-sub">Quantitative distribution across pricing tiers, vehicle mileage, and market volume.</span>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>Median Price by Persona Segment ($)</h4>
+                        <span class="chart-desc">Valuation spread from economy commuters to heavy utility</span>
+                    </div>
+                    <div class="chart-container">
                         <canvas id="personaPriceChart"></canvas>
                     </div>
                 </div>
 
-                <!-- Chart 2: Mileage vs Price Comparison -->
-                <div class="chart-card glass-card">
-                    <h3>Median Odometer vs. Price Profile</h3>
-                    <p class="chart-sub">Evaluating vehicle usage against median valuation</p>
-                    <div class="chart-wrapper">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>Median Mileage Profile (Miles)</h4>
+                        <span class="chart-desc">Odometer accumulation across market personas</span>
+                    </div>
+                    <div class="chart-container">
                         <canvas id="personaOdometerChart"></canvas>
                     </div>
                 </div>
-            </div>
 
-            <div class="charts-grid secondary-grid">
-                <!-- Chart 3: Market Share Donut -->
-                <div class="chart-card glass-card">
-                    <h3>Persona Volume Composition</h3>
-                    <p class="chart-sub">% share of marketplace listings across 5 clusters</p>
-                    <div class="chart-wrapper donut-wrapper">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>Market Share Composition (%)</h4>
+                        <span class="chart-desc">Proportional distribution of listings across 5 clusters</span>
+                    </div>
+                    <div class="chart-container donut-container">
                         <canvas id="personaShareDonut"></canvas>
                     </div>
                 </div>
 
-                <!-- Chart 4: Cramér's V Association Heatmap -->
-                <div class="chart-card glass-card">
-                    <h3>MNAR Missing Data Audit (%)</h3>
-                    <p class="chart-sub">Categorical feature missingness before structural 'NP' tagging</p>
-                    <div class="chart-wrapper">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>MNAR Missing Data Audit (%)</h4>
+                        <span class="chart-desc">Pre-cleaning missingness percentage across categories</span>
+                    </div>
+                    <div class="chart-container">
                         <canvas id="missingDataChart"></canvas>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Detailed Personas Deep-Dive -->
-    <section id="personas" class="personas-section">
-        <div class="container">
-            <h2 class="section-title">The 5 Discovered Buyer Personas</h2>
-            <div class="persona-table-container glass-card">
-                <table class="persona-table">
+        <!-- Segment Playbooks & Interactive Selector -->
+        <section class="section-block" id="personas">
+            <div class="section-header">
+                <h2>Segment Playbooks & Operational Strategy</h2>
+                <span class="section-sub">Select a persona to inspect commercial profile, opportunity, and recommended sales motion.</span>
+            </div>
+
+            <!-- Segment Selector Tabs -->
+            <div class="segment-tabs" id="segmentTabs">
+                <button class="tab-btn active" data-segment="all">All Segments</button>
+                <button class="tab-btn" data-segment="bargain">🔍 Under-Profiled Bargain (26.2%)</button>
+                <button class="tab-btn" data-segment="executive">💼 Executive Fleet (23.3%)</button>
+                <button class="tab-btn" data-segment="rebuilt">🔧 Rebuilt & Value (20.7%)</button>
+                <button class="tab-btn" data-segment="economy">🚗 Economy Commuter (19.0%)</button>
+                <button class="tab-btn" data-segment="workhorse">🛻 Utility Workhorse (10.8%)</button>
+            </div>
+
+            <!-- Detailed Playbook Display Card -->
+            <div class="playbook-container" id="playbookCard">
+                <div class="playbook-header">
+                    <div>
+                        <span class="playbook-badge" id="pbBadge">SEGMENT PLAYBOOK</span>
+                        <h3 id="pbTitle">Under-Profiled Bargain Spec</h3>
+                    </div>
+                    <div class="playbook-stats">
+                        <div class="stat-pill"><span class="stat-lbl">SHARE</span> <strong id="pbShare">26.17%</strong></div>
+                        <div class="stat-pill"><span class="stat-lbl">MEDIAN PRICE</span> <strong id="pbPrice">$17,500</strong></div>
+                        <div class="stat-pill"><span class="stat-lbl">MILEAGE</span> <strong id="pbMileage">80,500 mi</strong></div>
+                    </div>
+                </div>
+
+                <div class="playbook-grid">
+                    <div class="playbook-col">
+                        <span class="col-title">PROFILE ATTRIBUTES</span>
+                        <ul class="profile-list" id="pbProfile">
+                            <li><span>Median Year:</span> <strong>2015</strong></li>
+                            <li><span>Top Manufacturer:</span> <strong>Ford</strong></li>
+                            <li><span>Primary Type:</span> <strong>Sedan (Unspecified specs)</strong></li>
+                            <li><span>Title Status:</span> <strong>Clean Title</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="playbook-col">
+                        <span class="col-title">COMMERCIAL OPPORTUNITY</span>
+                        <p id="pbOpportunity" class="col-desc">Sellers who omit detailed specifications suffer a 15–20% pricing discount due to buyer uncertainty. High-volume arbitrage target.</p>
+                    </div>
+
+                    <div class="playbook-col">
+                        <span class="col-title">RECOMMENDED SALES MOTION</span>
+                        <p id="pbAction" class="col-desc">Automated acquisition of under-listed cars, spec completion via VIN decoding, and re-listing at full market valuation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segment Comparison Table -->
+            <div class="table-wrapper">
+                <div class="table-toolbar">
+                    <span class="table-title">Full Persona Comparison Matrix</span>
+                    <input type="text" id="tableSearch" placeholder="Filter personas..." class="table-search">
+                </div>
+                <table class="data-table" id="personasTable">
                     <thead>
                         <tr>
                             <th>Persona Name</th>
@@ -134,123 +255,141 @@
                             <th>Median Price</th>
                             <th>Median Year</th>
                             <th>Median Mileage</th>
-                            <th>Top Spec / Body Type</th>
-                            <th>Strategic Commercial Value</th>
+                            <th>Top Spec</th>
+                            <th>Strategic Alignment</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong class="tag tag-orange">🔍 Under-Profiled Bargain Spec</strong></td>
-                            <td><span class="share-badge">26.17%</span></td>
-                            <td><strong>$17,500</strong></td>
+                            <td><span class="badge-status badge-orange">🔍 Under-Profiled Bargain</span></td>
+                            <td><strong>26.17%</strong></td>
+                            <td>$17,500</td>
                             <td>2015</td>
                             <td>80,500 mi</td>
-                            <td>Ford Sedan (NP Spec, Clean)</td>
-                            <td>Arbitrage target: buy under-listed & complete spec</td>
+                            <td>Ford Sedan (NP Spec)</td>
+                            <td>Algorithmic listing arbitrage target</td>
                         </tr>
                         <tr>
-                            <td><strong class="tag tag-blue">💼 High-Value Executive Fleet</strong></td>
-                            <td><span class="share-badge">23.32%</span></td>
-                            <td><strong>$8,900</strong></td>
+                            <td><span class="badge-status badge-blue">💼 Executive Fleet</span></td>
+                            <td><strong>23.32%</strong></td>
+                            <td>$8,900</td>
                             <td>2011</td>
                             <td>119,690 mi</td>
-                            <td>Chevrolet Sedan (FWD, Excellent)</td>
-                            <td>High loan approval rate & steady turnover</td>
+                            <td>Chevrolet Sedan (FWD)</td>
+                            <td>High loan approval & steady turnover</td>
                         </tr>
                         <tr>
-                            <td><strong class="tag tag-red">🔧 Rebuilt & Value Inventory</strong></td>
-                            <td><span class="share-badge">20.70%</span></td>
-                            <td><strong>$28,590</strong></td>
+                            <td><span class="badge-status badge-red">🔧 Rebuilt & Value Inventory</span></td>
+                            <td><strong>20.70%</strong></td>
+                            <td>$28,590</td>
                             <td>2018</td>
                             <td>24,828 mi</td>
-                            <td>Ford Sedan (Good Condition, Clean)</td>
+                            <td>Ford Sedan (Good Condition)</td>
                             <td>High reconditioning ROI potential</td>
                         </tr>
                         <tr>
-                            <td><strong class="tag tag-green">🚗 Economy Daily Commuter</strong></td>
-                            <td><span class="share-badge">18.97%</span></td>
-                            <td><strong>$5,500</strong></td>
+                            <td><span class="badge-status badge-green">🚗 Economy Daily Commuter</span></td>
+                            <td><strong>18.97%</strong></td>
+                            <td>$5,500</td>
                             <td>2005</td>
                             <td>174,977 mi</td>
-                            <td>Ford Entry Level (Clean Title)</td>
-                            <td>Fastest turnover & lowest holding costs</td>
+                            <td>Ford Entry Level</td>
+                            <td>Fastest turnover & lowest holding cost</td>
                         </tr>
                         <tr>
-                            <td><strong class="tag tag-purple">🛻 Heavy-Duty Utility Workhorse</strong></td>
-                            <td><span class="share-badge">10.84%</span></td>
-                            <td><strong>$43,900</strong></td>
+                            <td><span class="badge-status badge-purple">🛻 Heavy Utility Workhorse</span></td>
+                            <td><strong>10.84%</strong></td>
+                            <td>$43,900</td>
                             <td>2017</td>
                             <td>40,848 mi</td>
-                            <td>Ford Truck (4WD, Clean Title)</td>
-                            <td>Highest margin & lowest depreciation rate</td>
+                            <td>Ford Truck (4WD)</td>
+                            <td>Highest margin & value retention</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Data Hygiene & Validation Section -->
-    <section id="data-hygiene" class="hygiene-section">
-        <div class="container">
-            <h2 class="section-title">Data Hygiene & Validation Framework</h2>
-            <div class="hygiene-grid">
-                <div class="hygiene-card glass-card">
-                    <div class="card-icon">🧠</div>
-                    <h3>Informative Missingness (MNAR)</h3>
-                    <p>Instead of discarding listings missing key attributes (e.g. 71.7% missing vehicle size), missing values were tagged with structural <code>'NP'</code> (Not Provided) tokens. This preserves non-profiling behavior as a predictive market signal.</p>
+        <!-- Data Hygiene & Audit Compliance -->
+        <section class="section-block" id="audit">
+            <div class="section-header">
+                <h2>36-Check Solution Audit Framework</h2>
+                <span class="section-sub">Automated pre-deployment verification suite ensuring data hygiene and model stability.</span>
+            </div>
+
+            <div class="audit-grid">
+                <div class="audit-card">
+                    <div class="audit-header">
+                        <span class="audit-cat">CATEGORY A: DATA HYGIENE</span>
+                        <span class="badge-pass">PASS (100%)</span>
+                    </div>
+                    <p class="audit-desc">All missing categorical tokens mapped to structural <code>'NP'</code>. Outliers scrubbed (Price: $500–$120k, Mileage: 1k–350k mi).</p>
                 </div>
-                <div class="hygiene-card glass-card">
-                    <div class="card-icon">📐</div>
-                    <h3>Cao Density Seeding Fix</h3>
-                    <p>Replaced stochastic Huang initialization with deterministic <strong>Cao density-based centroid seeding</strong>, resolving initial mode instability and boosting seed ARI from <code>0.3842</code> to <strong><code>0.9997</code></strong>.</p>
+
+                <div class="audit-card">
+                    <div class="audit-header">
+                        <span class="audit-cat">CATEGORY D: MODEL HEALTH</span>
+                        <span class="badge-pass">PASS (100%)</span>
+                    </div>
+                    <p class="audit-desc">Minimum cluster share verified at 10.84% (&gt; 5.0% threshold). No degenerate single-record clusters.</p>
                 </div>
-                <div class="hygiene-card glass-card">
-                    <div class="card-icon">✅</div>
-                    <h3>36-Check Validation Compliance</h3>
-                    <p>Automated pre-deployment suite across categories A–K. Verified seed stability across 5 random initialization states with an Adjusted Rand Index of <strong>0.9997</strong> (&gt; 0.85 benchmark threshold).</p>
+
+                <div class="audit-card">
+                    <div class="audit-header">
+                        <span class="audit-cat">CATEGORY F: STABILITY VERIFICATION</span>
+                        <span class="badge-pass">PASS (100%)</span>
+                    </div>
+                    <p class="audit-desc">Seed stability verified across 5 random initializations using Cao density seeding. ARI = <strong>0.9997</strong> (&gt; 0.85 requirement).</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Strategic Business Insights -->
-    <section id="business-insights" class="insights-section">
-        <div class="container glass-card">
-            <h2 class="section-title">Strategic Business Recommendations</h2>
-            <div class="insights-grid">
-                <div class="insight-box">
-                    <div class="insight-number">01</div>
-                    <div>
-                        <h3>Inventory Acquisition Strategy</h3>
+        <!-- Business Strategy Recommendations -->
+        <section class="section-block" id="strategy">
+            <div class="section-header">
+                <h2>Strategic Commercial Recommendations</h2>
+                <span class="section-sub">Actionable business motions derived from empirical clustering results.</span>
+            </div>
+
+            <div class="strategy-list">
+                <div class="strategy-item">
+                    <div class="strategy-num">01</div>
+                    <div class="strategy-content">
+                        <h4>Lot Procurement & Inventory Focus</h4>
                         <p>Focus commercial lot procurement on <strong>Heavy-Duty Workhorses ($43,900 median price)</strong>. While representing 10.84% of market volume, they exhibit the highest retention of value and lowest days-on-lot for utility buyers.</p>
                     </div>
                 </div>
 
-                <div class="insight-box">
-                    <div class="insight-number">02</div>
-                    <div>
-                        <h3>Algorithmic Listing Arbitrage</h3>
+                <div class="strategy-item">
+                    <div class="strategy-num">02</div>
+                    <div class="strategy-content">
+                        <h4>Algorithmic Listing Arbitrage</h4>
                         <p>Exploit the <strong>26.17% Under-Profiled Bargain Spec segment</strong>. Marketplace sellers who omit specifications suffer a 15–20% pricing discount. Dealerships can systematically acquire these listings, complete missing attributes, and re-list at full market value.</p>
                     </div>
                 </div>
 
-                <div class="insight-box">
-                    <div class="insight-number">03</div>
-                    <div>
-                        <h3>Persona-Based Dynamic Marketing</h3>
+                <div class="strategy-item">
+                    <div class="strategy-num">03</div>
+                    <div class="strategy-content">
+                        <h4>Persona-Based Dynamic Marketing</h4>
                         <p>Replace generic pricing campaigns with persona-tailored messaging. Target <strong>Economy Commuters ($5,500)</strong> with low monthly payment ads, while targeting <strong>Executive Fleets ($8,900)</strong> with warranty and financing offers.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>Developed by <a href="https://github.com/kushchhabra0" target="_blank">Kushal Chhabra</a> | Used Car Persona Segmentation Pipeline</p>
-            <p class="small">Built with Python, K-Prototypes, Scikit-Learn, and Chart.js</p>
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-brand">AutoAnalytics Enterprise</span>
+                <span class="footer-copy">Developed by Kushal Chhabra | Used Car Market Segmentation Pipeline</span>
+            </div>
+            <div class="footer-right">
+                <span>Built with Python · Scikit-Learn · KModes · Chart.js</span>
+            </div>
         </div>
     </footer>
 
